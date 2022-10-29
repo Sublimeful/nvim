@@ -38,11 +38,6 @@ return require('packer').startup(function()
   use {
     "catppuccin/nvim",
     as = "catppuccin",
-    config = function()
-      require("catppuccin").setup {
-        flavour = "macchiato" -- mocha, macchiato, frappe, latte
-      }
-    end
   }
 
 end)
