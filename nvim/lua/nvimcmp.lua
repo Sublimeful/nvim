@@ -36,7 +36,7 @@ cmp.setup({
       if vim.fn['vsnip#jumpable'](1) == 1 then
         feedkeys('<Plug>(vsnip-jump-next)', '')
       end
-    end),
+    end, { 'i', 's' }),
     ['<C-q>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.close()
@@ -44,7 +44,7 @@ cmp.setup({
       if vim.fn['vsnip#jumpable'](-1) == 1 then
         feedkeys('<Plug>(vsnip-jump-prev)', '')
       end
-    end),
+    end, { 'i', 's' }),
   },
   sources = {
     { name = 'nvim_lsp' },
