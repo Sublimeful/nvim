@@ -15,6 +15,8 @@ vim.api.nvim_set_keymap("v", "<C-h>", "5h", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-l>", "5l", { noremap = true })
 
 -- <A-;>/<A-'> as escape key
+vim.api.nvim_set_keymap("", ";", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("", "'", "<Nop>", { noremap = true })
 vim.api.nvim_set_keymap("", "<A-;>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("", "<A-'>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("s", "<A-;>", "<Esc>", { noremap = true })
