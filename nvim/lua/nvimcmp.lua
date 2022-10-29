@@ -1,4 +1,4 @@
--- Function to check if there is a letter on the cursor
+-- Function to check if there is a word before the cursor in insert mode
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil

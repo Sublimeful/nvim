@@ -14,17 +14,13 @@ vim.api.nvim_set_keymap("v", "<C-k>", "5gk", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-h>", "5h", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-l>", "5l", { noremap = true })
 
--- <A-;>/<A-'> as escape key
+-- <A-;>/<A-'> as escape keys, disable default keybinds for ; and '
 vim.api.nvim_set_keymap("", ";", "<Nop>", { noremap = true })
 vim.api.nvim_set_keymap("", "'", "<Nop>", { noremap = true })
-vim.api.nvim_set_keymap("", "<A-;>", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("", "<A-'>", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("s", "<A-;>", "<Esc>", { noremap = true })
-vim.api.nvim_set_keymap("s", "<A-'>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", { noremap = true })
 
--- Set Ctrl-W to delete whole word properly
+-- Ctrl-W to delete whole word properly
 vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", { noremap = true })
 
 -- Tab new/close

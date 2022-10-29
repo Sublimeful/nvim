@@ -24,18 +24,20 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
-  use 'Sublimeful/nvim-brackets'
-
-  use 'tpope/vim-commentary'
-
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-
-  use '907th/vim-auto-save'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   use {
     "catppuccin/nvim",
     as = "catppuccin",
   }
+
+  use 'Sublimeful/nvim-brackets'
+
+  use 'tpope/vim-commentary'
+
+  use '907th/vim-auto-save'
 
 end)

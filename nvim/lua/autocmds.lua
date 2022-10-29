@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
   end
 })
 
--- Jump back to last cursor position
+-- Jump to last cursor position when opening a file
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*" },
   callback = function()
