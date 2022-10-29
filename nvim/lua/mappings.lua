@@ -22,13 +22,16 @@ vim.api.nvim_set_keymap("s", "<A-'>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", { noremap = true })
 
+-- Set Ctrl-W to delete whole word properly
+vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", { noremap = true })
+
 -- Tab new/close
 vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", { noremap = true })
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", { noremap = true })
 
 -- Terminal
-vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>", { noremap = true })
-vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", { noremap = true })
+vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", { noremap = true })
 
 -- Telescope
 vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>Telescope buffers<CR>", { noremap = true })
