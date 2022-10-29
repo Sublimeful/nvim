@@ -1,6 +1,8 @@
+-- Define options for mappings
+local opts = { noremap = true, silent = true }
+
 -- Mappings
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', ',e', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', ',q', '<Cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'ge', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
