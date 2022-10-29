@@ -12,6 +12,9 @@ require("lualine").setup()
 -- luatab.nvim
 require("luatab").setup()
 
+-- nvim-brackets
+require("nvim-brackets")
+
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup({
   highlight = {

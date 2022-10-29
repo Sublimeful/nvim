@@ -10,6 +10,7 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   use 'nvim-treesitter/nvim-treesitter'
   use 'sbdchd/neoformat'
 
@@ -23,10 +24,7 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
-  use {
-    'Sublimeful/nvim-brackets',
-    config = function() require('nvim-brackets') end
-  }
+  use 'Sublimeful/nvim-brackets'
 
   use 'tpope/vim-commentary'
 
