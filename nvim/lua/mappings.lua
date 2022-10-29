@@ -1,38 +1,41 @@
+-- Define options for mappings
+local opts = { noremap = true }
+
 -- Set j and k to move one displayed line (ignore wrapping)
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })
-vim.api.nvim_set_keymap("v", "j", "gj", { noremap = true })
-vim.api.nvim_set_keymap("v", "k", "gk", { noremap = true })
+vim.api.nvim_set_keymap("n", "j", "gj", opts)
+vim.api.nvim_set_keymap("n", "k", "gk", opts)
+vim.api.nvim_set_keymap("v", "j", "gj", opts)
+vim.api.nvim_set_keymap("v", "k", "gk", opts)
 
 -- Navigate down/up/left/right five displayed lines
-vim.api.nvim_set_keymap("n", "<C-j>", "5gj", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "5gk", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-h>", "5h", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "5l", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-j>", "5gj", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-k>", "5gk", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-h>", "5h", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-l>", "5l", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-j>", "5gj", opts)
+vim.api.nvim_set_keymap("n", "<C-k>", "5gk", opts)
+vim.api.nvim_set_keymap("n", "<C-h>", "5h", opts)
+vim.api.nvim_set_keymap("n", "<C-l>", "5l", opts)
+vim.api.nvim_set_keymap("v", "<C-j>", "5gj", opts)
+vim.api.nvim_set_keymap("v", "<C-k>", "5gk", opts)
+vim.api.nvim_set_keymap("v", "<C-h>", "5h", opts)
+vim.api.nvim_set_keymap("v", "<C-l>", "5l", opts)
 
 -- <A-;>/<A-'> as escape keys, disable default keybinds for ; and '
-vim.api.nvim_set_keymap("", ";", "<Nop>", { noremap = true })
-vim.api.nvim_set_keymap("", "'", "<Nop>", { noremap = true })
-vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", { noremap = true })
-vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", { noremap = true })
+vim.api.nvim_set_keymap("", ";", "<Nop>", opts)
+vim.api.nvim_set_keymap("", "'", "<Nop>", opts)
+vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", opts)
+vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", opts)
 
 -- Ctrl-W to delete whole word properly
-vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
 
 -- Tab new/close
-vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", { noremap = true })
+vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
+vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", opts)
 
 -- Terminal
-vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", { noremap = true })
-vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", { noremap = true })
+vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
 
 -- Telescope
-vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>Telescope buffers<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>g", "<Cmd>Telescope live_grep<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>f", "<Cmd>Telescope find_files<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>b", "<Cmd>Telescope buffers<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>h", "<Cmd>Telescope help_tags<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>g", "<Cmd>Telescope live_grep<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>f", "<Cmd>Telescope find_files<CR>", opts)
