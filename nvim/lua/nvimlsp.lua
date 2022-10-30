@@ -27,12 +27,24 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 end
 
+-- Configure diagnostics
+vim.diagnostic.config {
+  float = { border = 'single' },
+}
+
+-- Define handlers
+local handlers = {
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+}
+
 -- Setup lsp for each server
 local servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
+    handlers = handlers,
   }
 end
 
