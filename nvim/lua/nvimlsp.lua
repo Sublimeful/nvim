@@ -27,15 +27,18 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 end
 
+-- Local Config
+local border_style = 'single'
+
 -- Configure diagnostics
 vim.diagnostic.config {
-  float = { border = 'single' },
+  float = { border = border_style },
 }
 
 -- Define handlers
 local handlers = {
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border_style }),
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_style }),
 }
 
 -- Setup lsp for each server
