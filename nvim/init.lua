@@ -25,6 +25,7 @@ require('nvim-treesitter.configs').setup({
 -- lsp_signature.nvim
 require "lsp_signature".setup({
   floating_window = false,
+  hint_scheme = "SignatureHint",
   hint_prefix = "",
 })
 
