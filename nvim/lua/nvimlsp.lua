@@ -1,3 +1,6 @@
+-- Local Config
+local border_style = 'single'
+
 -- Define options for mappings
 local opts = { noremap = true, silent = true }
 
@@ -26,9 +29,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',s', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 end
-
--- Local Config
-local border_style = 'single'
 
 -- Configure diagnostics
 vim.diagnostic.config {
