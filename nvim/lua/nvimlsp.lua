@@ -1,4 +1,5 @@
 -- Local Config
+local servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
 local border_style = 'single'
 
 -- Define options for mappings
@@ -42,7 +43,6 @@ local handlers = {
 }
 
 -- Setup lsp for each server
-local servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
