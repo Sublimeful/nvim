@@ -6,6 +6,8 @@ vim.api.nvim_set_keymap("n", "j", "gj", opts)
 vim.api.nvim_set_keymap("n", "k", "gk", opts)
 vim.api.nvim_set_keymap("v", "j", "gj", opts)
 vim.api.nvim_set_keymap("v", "k", "gk", opts)
+vim.api.nvim_set_keymap("s", "j", "j", opts)
+vim.api.nvim_set_keymap("s", "k", "k", opts)
 
 -- Navigate down/up/left/right five displayed lines
 vim.api.nvim_set_keymap("n", "<C-j>", "5gj", opts)
