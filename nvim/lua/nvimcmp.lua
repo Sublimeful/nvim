@@ -22,6 +22,7 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() and has_words_before() then
         cmp.confirm({ select = true })
