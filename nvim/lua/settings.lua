@@ -46,3 +46,6 @@ vim.opt.foldmarker = "<--,-->"
 -- Enables smart case insensitive searches
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- No timeout for mappings
+vim.opt.timeout = false
