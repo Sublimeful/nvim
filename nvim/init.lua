@@ -42,7 +42,11 @@ require('telescope').setup {
       i = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<C-f>"] = actions.preview_scrolling_down,
+        ["<C-b>"] = actions.preview_scrolling_up,
+        ["<A-->"] = actions.delete_buffer,
         ["<Esc>"] = actions.close,
+        ["<C-h>"] = "which_key",
       }
     }
   }
