@@ -11,8 +11,15 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/vim-vsnip-integ'
-  use 'nvim-treesitter/nvim-treesitter'
   use 'sbdchd/neoformat'
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end
+  }
 
   use {
     'nvim-lualine/lualine.nvim',
