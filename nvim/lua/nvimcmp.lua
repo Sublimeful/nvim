@@ -11,6 +11,10 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = {
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4)),
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
