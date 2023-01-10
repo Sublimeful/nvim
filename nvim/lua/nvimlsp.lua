@@ -1,5 +1,10 @@
+-- Server Config
+servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
+
+-- Custom Server Config
+require('server_configurations/gdscript')
+
 -- Local Config
-local servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
 local border_style = 'single'
 
 -- Define options for mappings
