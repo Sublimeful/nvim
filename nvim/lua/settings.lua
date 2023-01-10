@@ -19,7 +19,6 @@ vim.opt.mouse = "a"
 -- Sets tab to 2 spaces
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
 
 -- Show tabline at the top
 vim.opt.showtabline = 2
