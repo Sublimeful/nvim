@@ -34,9 +34,15 @@ vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
 vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", opts)
 
+-- Tab navigation
+for i = 1, 9 do
+  vim.api.nvim_set_keymap("", "<A-"..i..">", "<Cmd>tabn "..i.."<CR>", opts)
+end
+
 -- Terminal
 vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
 vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.api.nvim_set_keymap("", "<C-A-T>", "<Cmd>term<CR>i", opts)
 
 -- Telescope
 vim.api.nvim_set_keymap("n", ",b", "<Cmd>Telescope buffers<CR>", opts)
