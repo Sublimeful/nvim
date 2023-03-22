@@ -1,5 +1,5 @@
 -- Server Config
-servers = { 'pyright', 'tsserver', 'jdtls', 'clangd', 'bashls' }
+servers = { 'pylsp', 'tsserver', 'jdtls', 'clangd', 'bashls' }
 
 -- Custom Server Config
 require('server_configurations/gdscript')
