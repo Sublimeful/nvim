@@ -13,6 +13,9 @@ vim.opt.updatetime = 1000
 vim.opt.undodir = vim.fn.expand("~/.nvim/undodir")
 vim.opt.undofile = true
 
+-- Use :help instead of :Man to prevent freezes
+vim.opt.keywordprg = ':help'
+
 -- Enables mouse support
 vim.opt.mouse = "a"
 
