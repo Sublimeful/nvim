@@ -19,9 +19,13 @@ vim.opt.keywordprg = ':help'
 -- Enables mouse support
 vim.opt.mouse = "a"
 
--- Sets tab to 2 spaces
-vim.opt.tabstop = 2
+-- Alignment tabs are 2 spaces wide, and never tabs
+-- Real tabs render as 4 spaces wide. Applicable to languages like Python.
+vim.opt.expandtab = true
+vim.opt.smarttab = true
 vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 4
 
 -- Show tabline at the top
 vim.opt.showtabline = 2
