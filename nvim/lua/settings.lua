@@ -50,7 +50,7 @@ vim.opt.termguicolors = true
 
 -- Folding options
 vim.opt.foldmethod = "marker"
-vim.opt.foldmarker = "<--,-->"
+vim.opt.foldmarker = "<{{,}}>"
 
 -- Enables smart case insensitive searches
 vim.opt.ignorecase = true
