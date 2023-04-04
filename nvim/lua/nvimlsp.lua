@@ -1,5 +1,5 @@
 -- Server Config
-servers = { 'pylsp', 'tsserver', 'jdtls', 'clangd', 'bashls' }
+servers = { 'pylsp', 'tsserver', 'jdtls', 'clangd', 'bashls', 'cssls', 'html' }
 
 -- Custom Server Config
 require('server_configurations/gdscript')
