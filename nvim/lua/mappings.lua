@@ -33,10 +33,13 @@ vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
 -- Tab new/close
 vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>tabnew<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>tabclose<CR>", opts)
 
 -- Tab navigation
 for i = 1, 9 do
   vim.api.nvim_set_keymap("", "<A-"..i..">", "<Cmd>tabn "..i.."<CR>", opts)
+  vim.api.nvim_set_keymap("t", "<A-"..i..">", "<C-\\><C-n><Cmd>tabn "..i.."<CR>", opts)
 end
 
 -- Terminal
