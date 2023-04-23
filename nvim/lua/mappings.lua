@@ -22,6 +22,8 @@ vim.api.nvim_set_keymap("v", "<C-l>", "5l", opts)
 -- <A-;>/<A-'> as escape keys, disable default keybinds for ; and '
 vim.api.nvim_set_keymap("", ";", "<Nop>", opts)
 vim.api.nvim_set_keymap("", "'", "<Nop>", opts)
+vim.api.nvim_set_keymap("s", ";", ";", opts)
+vim.api.nvim_set_keymap("s", "'", "'", opts)
 vim.api.nvim_set_keymap("n", "r<A-;>", "<Esc>", opts)
 vim.api.nvim_set_keymap("n", "r<A-'>", "<Esc>", opts)
 vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", opts)
