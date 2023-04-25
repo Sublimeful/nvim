@@ -60,3 +60,4 @@ vim.api.nvim_set_keymap("n", ",f", "<Cmd>Telescope find_files<CR>", opts)
 
 -- nvim-tree
 vim.api.nvim_set_keymap("n", "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "<C-A-B>", "<Cmd>NvimTreeFindFile<CR>", opts)
