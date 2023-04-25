@@ -58,3 +58,7 @@ vim.opt.smartcase = true
 
 -- No timeout for mappings
 vim.opt.timeout = false
+
+-- nvim-tree settings
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

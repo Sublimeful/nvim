@@ -65,4 +65,10 @@ return require('packer').startup(function()
   -- AutoSave to prevent losing work
   use '907th/vim-auto-save'
 
+  -- File Explorer
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
+
 end)

@@ -57,3 +57,6 @@ vim.api.nvim_set_keymap("n", ",b", "<Cmd>Telescope buffers<CR>", opts)
 vim.api.nvim_set_keymap("n", ",h", "<Cmd>Telescope help_tags<CR>", opts)
 vim.api.nvim_set_keymap("n", ",g", "<Cmd>Telescope live_grep<CR>", opts)
 vim.api.nvim_set_keymap("n", ",f", "<Cmd>Telescope find_files<CR>", opts)
+
+-- nvim-tree
+vim.api.nvim_set_keymap("n", "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
