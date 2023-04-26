@@ -86,6 +86,7 @@ require("nvim-tree").setup({
     vim.keymap.set('n', 'I',     api.tree.toggle_gitignore_filter,      opts('Toggle Git Ignore'))
     vim.keymap.set('n', 'K',     api.node.show_info_popup,              opts('Info'))
     vim.keymap.set('n', 'm',     api.marks.toggle,                      opts('Toggle Bookmark'))
+    vim.keymap.set('n', 'M',     api.marks.bulk.move,                   opts('Move Bookmarked'))
     vim.keymap.set('n', 'o',     api.node.open.edit,                    opts('Open'))
     vim.keymap.set('n', 'O',     api.node.open.no_window_picker,        opts('Open: No Window Picker'))
     vim.keymap.set('n', 'p',     api.fs.paste,                          opts('Paste'))
