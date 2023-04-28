@@ -42,9 +42,6 @@ vim.opt.signcolumn = "yes:1"
 -- Enable shared clipboard
 vim.opt.clipboard:append({ 'unnamed', 'unnamedplus' })
 
--- Disable swap files
-vim.opt.swapfile = false
-
 -- Enables 24-bit RGB color in the TUI
 vim.opt.termguicolors = true
 
