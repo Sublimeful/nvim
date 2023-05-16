@@ -30,8 +30,8 @@ vim.opt.tabstop = 4
 -- Show tabline at the top
 vim.opt.showtabline = 2
 
--- Highlight line cursor is on
-vim.opt.cursorline = true
+-- Highlight line cursor
+vim.opt.cursorline = false
 
 -- Show line numbers on the left
 vim.opt.number = true
