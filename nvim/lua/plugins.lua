@@ -35,7 +35,8 @@ return require('packer').startup(function()
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
+    requires = 'kyazdani42/nvim-web-devicons',
+    requires = 'lewis6991/gitsigns.nvim'
   }
 
   -- Tabline
