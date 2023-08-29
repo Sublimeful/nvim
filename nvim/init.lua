@@ -89,6 +89,12 @@ require("nvim-tree").setup({
       resize_window = false,
     }
   },
+  diagnostics = {
+    enable = true,
+  },
+  filesystem_watchers = {
+    enable = true,
+  },
   on_attach = function(bufnr)
     local api = require('nvim-tree.api')
 
