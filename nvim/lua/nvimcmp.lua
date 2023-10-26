@@ -20,7 +20,17 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        if cmp.visible_docs() then
+          cmp.close_docs()
+        else
+          cmp.open_docs()
+        end
+      else
+        cmp.complete()
+      end
+    end),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm({ select = true })
