@@ -10,7 +10,6 @@ vim.g.auto_save = 1
 vim.opt.updatetime = 1000
 
 -- Save undo history
-vim.opt.undodir = vim.fn.expand("~/.nvim/undodir")
 vim.opt.undofile = true
 
 -- Use :help instead of :Man to prevent freezes
