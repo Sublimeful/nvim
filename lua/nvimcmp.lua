@@ -25,7 +25,7 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
     ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item()),
     ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item()),
-    ['<C-Space>'] = cmp.mapping(function(fallback)
+    ['<C-l>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         if cmp.visible_docs() then
           cmp.close_docs()
