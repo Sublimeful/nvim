@@ -87,7 +87,10 @@ require("nvim-tree").setup({
   actions = {
     open_file = {
       resize_window = false,
-    }
+    },
+    change_dir = {
+      global = true,
+    },
   },
   diagnostics = {
     enable = true,
