@@ -18,7 +18,7 @@ vim.opt.keywordprg = ':help'
 -- Enables mouse support
 vim.opt.mouse = "a"
 vim.opt.mousemodel = "extend"
-vim.opt.mousescroll = "ver:2,hor:6"
+vim.opt.mousescroll = "ver:1,hor:1"
 
 -- Alignment tabs are 2 spaces wide, and never tabs
 -- Real tabs render as 4 spaces wide. Applicable to languages like Python.
