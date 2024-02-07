@@ -1,12 +1,12 @@
 -- Server config
-servers = { 'pylsp', 'tsserver', 'jdtls', 'clangd', 'bashls', 'cssls', 'html' }
+servers = { 'bashls', 'clangd', 'rust_analyzer', 'pylsp', 'lua_ls', 'jdtls', 'tsserver', 'html', 'cssls' }
 
 -- Additional servers
 local Path = require("plenary.path")
 local Scan = require("plenary.scandir")
-local servers_extra = Scan.scan_dir(vim.fn.expand("$HOME") .. "/.local/share/nvim/servers_extra")
-for i = 1, #servers_extra, 1 do
-  local server_path = Path:new(servers_extra[i])
+local custom_servers = Scan.scan_dir(vim.fn.expand("$HOME") .. "/.local/share/nvim/lsp_servers")
+for i = 1, #custom_servers, 1 do
+  local server_path = Path:new(custom_servers[i])
   dofile(server_path:absolute())
 end
 
