@@ -32,6 +32,10 @@ vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", opts)
 -- Ctrl-W to delete whole word properly
 vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
 
+-- Allow for smoother navigation in visual line mode
+vim.api.nvim_set_keymap("v", "<S-j>", "j", opts)
+vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
+
 -- Tab new/close
 vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", opts)
