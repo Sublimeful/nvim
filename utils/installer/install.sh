@@ -17,7 +17,6 @@ declare -xr NVIM_APPNAME="${NVIM_APPNAME:-"nvim"}"
 declare -xr RUNTIME_DIR="${RUNTIME_DIR:-"$XDG_DATA_HOME/$NVIM_APPNAME"}"
 declare -xr CONFIG_DIR="${CONFIG_DIR:-"$XDG_CONFIG_HOME/$NVIM_APPNAME"}"
 declare -xr CACHE_DIR="${CACHE_DIR:-"$XDG_CACHE_HOME/$NVIM_APPNAME"}"
-declare -xr PACKER_DIR="${PACKER_DIR:-"$RUNTIME_DIR/site/pack/packer/start/packer.nvim"}"
 
 declare ARGS_INSTALL_DEPENDENCIES=1
 declare INTERACTIVE_MODE=1
@@ -25,7 +24,6 @@ declare INTERACTIVE_MODE=1
 declare -a __nvim_dirs=(
   "$CACHE_DIR"
   "$CONFIG_DIR"
-  "$PACKER_DIR"
 )
 
 declare -a __npm_deps=(
@@ -137,11 +135,8 @@ function main() {
 
   clone
 
-  setup
-
   msg "Thank you for installing!!!"
   echo "Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts]"
-  echo "Make sure to run :PackerSync when starting nvim for the first time"
 }
 
 function detect_platform() {
@@ -311,15 +306,6 @@ function clone() {
     echo "Failed to clone repository. Installation failed."
     exit 1
   fi
-}
-
-function setup() {
-  msg "Preparing Packer setup"
-
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-  printf "Packer setup complete\n"
 }
 
 function verify_nvim_dirs() {
