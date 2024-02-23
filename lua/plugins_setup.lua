@@ -42,11 +42,6 @@ require("lsp_signature").setup({
 -- telescope.nvim
 local actions = require("telescope.actions")
 require('telescope').setup {
-  pickers = {
-    buffers = {
-      sort_lastused = true,
-    }
-  },
   defaults = {
     mappings = {
       i = {
@@ -62,6 +57,7 @@ require('telescope').setup {
   },
   pickers = {
     buffers = {
+      sort_lastused = true,
       mappings = {
         i = {
           ["<A-->"] = actions.delete_buffer,
