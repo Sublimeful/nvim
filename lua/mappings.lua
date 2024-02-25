@@ -89,12 +89,12 @@ vim.api.nvim_set_keymap("n", ",d", "<Cmd>Telescope lsp_definitions<CR>", opts)
 vim.api.nvim_set_keymap("n", ",t", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
 
 -- Git Pickers
-vim.api.nvim_set_keymap("n", ",gc", "<Cmd>Telescope git_commits<CR>", opts)
-vim.api.nvim_set_keymap("n", ",gB", "<Cmd>Telescope git_bcommits<CR>", opts)
-vim.api.nvim_set_keymap("v", ",gB", "<Cmd>Telescope git_bcommits_range<CR>", opts)
-vim.api.nvim_set_keymap("n", ",gb", "<Cmd>Telescope git_branches<CR>", opts)
-vim.api.nvim_set_keymap("n", ",gs", "<Cmd>Telescope git_status<CR>", opts)
-vim.api.nvim_set_keymap("n", ",gS", "<Cmd>Telescope git_stash<CR>", opts)
+vim.api.nvim_set_keymap("n", ",Gc", "<Cmd>Telescope git_commits<CR>", opts)
+vim.api.nvim_set_keymap("n", ",GB", "<Cmd>Telescope git_bcommits<CR>", opts)
+vim.api.nvim_set_keymap("v", ",GB", "<Cmd>Telescope git_bcommits_range<CR>", opts)
+vim.api.nvim_set_keymap("n", ",Gb", "<Cmd>Telescope git_branches<CR>", opts)
+vim.api.nvim_set_keymap("n", ",Gs", "<Cmd>Telescope git_status<CR>", opts)
+vim.api.nvim_set_keymap("n", ",GS", "<Cmd>Telescope git_stash<CR>", opts)
 
 
 -- nvim-tree
