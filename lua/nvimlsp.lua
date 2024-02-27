@@ -16,6 +16,10 @@ local border_style = 'single'
 -- Define options for mappings
 local opts = { noremap = true, silent = true }
 
+-- Mappings
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.api.nvim_set_keymap('n', ',E', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
