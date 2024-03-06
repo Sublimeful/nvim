@@ -13,22 +13,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- List of plugins
-require('lazy').setup({
+local plugins = {
   -- Language Server Configs
   'neovim/nvim-lspconfig',
   -- LSP Signature Hints
   'ray-x/lsp_signature.nvim',
   -- Language Server manager
   'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
   -- Completion and Code Snippets
   'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
   'hrsh7th/nvim-cmp',
-  'hrsh7th/vim-vsnip',
-  'hrsh7th/vim-vsnip-integ',
+  { 'hrsh7th/cmp-path', lazy = false },
+  { 'hrsh7th/cmp-buffer', lazy = false },
+  { 'hrsh7th/vim-vsnip', lazy = false },
   -- Code Formatter
-  'sbdchd/neoformat',
+  { 'sbdchd/neoformat', lazy = false },
   -- Syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
@@ -64,12 +64,20 @@ require('lazy').setup({
   -- Properly indents brackets
   { 'Sublimeful/nvim-brackets' },
   -- Quick code comments
-  { 'tpope/vim-commentary' },
+  { 'tpope/vim-commentary', lazy = false },
   -- AutoSave to prevent losing work
-  { '907th/vim-auto-save' },
+  { '907th/vim-auto-save', lazy = false },
   -- File Explorer
   {
     'nvim-tree/nvim-tree.lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
-})
+}
+
+-- Lazy configuration
+local opts = {
+  -- Lazy loads all plugins by default
+  defaults = { lazy = true },
+}
+
+require('lazy').setup(plugins, opts)

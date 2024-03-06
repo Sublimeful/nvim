@@ -1,15 +1,3 @@
--- Server config
-servers = { 'bashls', 'clangd', 'rust_analyzer', 'pylsp', 'lua_ls', 'jdtls', 'tsserver', 'html', 'cssls' }
-
--- Additional servers
-local Path = require("plenary.path")
-local Scan = require("plenary.scandir")
-local custom_servers = Scan.scan_dir(vim.fn.expand("$HOME") .. "/.local/share/nvim/lsp_servers")
-for i = 1, #custom_servers, 1 do
-  local server_path = Path:new(custom_servers[i])
-  dofile(server_path:absolute())
-end
-
 -- Local config
 local border_style = 'single'
 
@@ -41,14 +29,23 @@ local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_style }),
 }
 
--- Setup lsp for each server
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    on_attach = on_attach,
-    handlers = handlers,
-  }
-end
-
 -- Setup mason, the lsp installer
 require("mason").setup()
+
+-- Setup mason-lspconfig for convenience with lspconfig
+require("mason-lspconfig").setup {
+  ensure_installed = { 'bashls', 'clangd', 'rust_analyzer', 'pylsp', 'lua_ls', 'jdtls', 'tsserver', 'html', 'cssls' },
+  automatic_installation = true,
+}
+
+-- Setup mason-lspconfig setup_handlers
+require("mason-lspconfig").setup_handlers {
+  -- Default handler
+  function (server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      on_attach = on_attach,
+      handlers = handlers,
+    }
+  end,
+}
