@@ -74,6 +74,17 @@ local plugins = {
   },
 }
 
+-- Load custom plugins
+local custom_plugins_path = vim.fn.stdpath("data") .. "/custom/plugins.lua"
+if vim.fn.filereadable(custom_plugins_path) then
+  local custom_plugins = dofile(custom_plugins_path)
+  if type(custom_plugins) == "table" then
+    for _, plugin in ipairs(custom_plugins) do
+      table.insert(plugins, plugin)
+    end
+  end
+end
+
 -- Lazy configuration
 local opts = {
   -- Lazy loads all plugins by default
