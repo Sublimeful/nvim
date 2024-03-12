@@ -76,7 +76,7 @@ local plugins = {
 
 -- Load custom plugins
 local custom_plugins_path = vim.fn.stdpath("data") .. "/custom/plugins.lua"
-if vim.fn.filereadable(custom_plugins_path) then
+if vim.fn.filereadable(custom_plugins_path) == 1 then
   local custom_plugins = dofile(custom_plugins_path)
   if type(custom_plugins) == "table" then
     for _, plugin in ipairs(custom_plugins) do
