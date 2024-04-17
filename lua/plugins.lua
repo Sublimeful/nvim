@@ -37,7 +37,7 @@ local plugins = {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { "bash", "c", "cpp", "rust", "python", "lua", "java", "javascript", "typescript", "html", "css" },
+        ensure_installed = { "vimdoc", "bash", "c", "cpp", "rust", "python", "lua", "java", "javascript", "typescript", "html", "css" },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
