@@ -29,6 +29,26 @@ local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_style }),
 }
 
+-- Default LSP handler
+local function lsp_handler(server_name)
+  require('lspconfig')[server_name].setup {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    on_attach = on_attach,
+    handlers = handlers,
+  }
+end
+
+-- Load custom lsp servers
+local custom_servers_path = vim.fn.stdpath("data") .. "/custom/lsp_servers.lua"
+if vim.fn.filereadable(custom_servers_path) == 1 then
+  local custom_servers = dofile(custom_servers_path)
+  if type(custom_servers) == "table" then
+    for _, server_name in ipairs(custom_servers) do
+      lsp_handler(server_name)
+    end
+  end
+end
+
 -- Setup mason, the lsp installer
 require("mason").setup()
 
@@ -39,13 +59,4 @@ require("mason-lspconfig").setup {
 }
 
 -- Setup mason-lspconfig setup_handlers
-require("mason-lspconfig").setup_handlers {
-  -- Default handler
-  function (server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      on_attach = on_attach,
-      handlers = handlers,
-    }
-  end,
-}
+require("mason-lspconfig").setup_handlers { lsp_handler }
