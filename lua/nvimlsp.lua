@@ -29,13 +29,29 @@ local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_style }),
 }
 
+-- Load custom lsp setup configs
+local custom_setup_configs_path = vim.fn.stdpath("data") .. "/custom/lsp_setup_configs.lua"
+local custom_setup_configs = {}
+if vim.fn.filereadable(custom_setup_configs_path) == 1 then
+  local setup_configs = dofile(custom_setup_configs_path)
+  if type(setup_configs) == "table" then
+    custom_setup_configs = setup_configs
+  end
+end
+
 -- Default LSP handler
 local function lsp_handler(server_name)
-  require('lspconfig')[server_name].setup {
+  local setup_configs = {
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
     on_attach = on_attach,
     handlers = handlers,
   }
+
+  if (type(custom_setup_configs[server_name]) == "table") then
+    setup_configs = vim.tbl_deep_extend("force", setup_configs, custom_setup_configs[server_name])
+  end
+
+  require('lspconfig')[server_name].setup(setup_configs)
 end
 
 -- Load custom lsp servers
