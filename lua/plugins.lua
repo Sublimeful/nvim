@@ -16,6 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   -- Language Server Configs
   'neovim/nvim-lspconfig',
+  -- Syntax highlighting
+  'nvim-treesitter/nvim-treesitter',
   -- LSP Signature Hints
   'ray-x/lsp_signature.nvim',
   -- Language Server manager
@@ -29,21 +31,6 @@ local plugins = {
   { 'hrsh7th/vim-vsnip', lazy = false },
   -- Code Formatter
   { 'sbdchd/neoformat', lazy = false },
-  -- Syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function ()
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-        ensure_installed = { "vimdoc", "bash", "c", "cpp", "rust", "python", "lua", "java", "javascript", "typescript", "html", "css" },
-        sync_install = false,
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end
-  },
   -- Statusline
   {
     'nvim-lualine/lualine.nvim',

@@ -27,9 +27,14 @@ require("nvim-brackets")
 
 -- nvim-treesitter
 require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
+  -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+  -- `false` will disable the whole extension
+  highlight = { enable = true },
+  -- Indentation based on treesitter for the = operator
+  indent = { enable = true },
 })
 
 -- lsp_signature.nvim

@@ -69,10 +69,7 @@ end
 require("mason").setup()
 
 -- Setup mason-lspconfig for convenience with lspconfig
-require("mason-lspconfig").setup {
-  ensure_installed = { 'bashls', 'clangd', 'rust_analyzer', 'pylsp', 'lua_ls', 'jdtls', 'tsserver', 'html', 'cssls' },
-  automatic_installation = true,
-}
+require("mason-lspconfig").setup()
 
 -- Setup mason-lspconfig setup_handlers
 require("mason-lspconfig").setup_handlers { lsp_handler }
