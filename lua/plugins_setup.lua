@@ -52,6 +52,8 @@ require('telescope').setup {
       i = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<A-j>"] = actions.cycle_history_next,
+        ["<A-k>"] = actions.cycle_history_prev,
         ["<C-b>"] = actions.preview_scrolling_up,
         ["<C-f>"] = actions.preview_scrolling_down,
         ["<C-h>"] = actions.preview_scrolling_left,
