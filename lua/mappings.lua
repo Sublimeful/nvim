@@ -43,13 +43,13 @@ vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
 
 
 -- Buf new/close/restore
-vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>BufferClose<CR>", opts)
 vim.api.nvim_set_keymap("", "<S-A-=>", "<Cmd>BufferRestore<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("i", "<A-->", "<Esc><Cmd>BufferClose<CR>", opts)
 vim.api.nvim_set_keymap("i", "<S-A-=>", "<Esc><Cmd>BufferRestore<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>tabnew<CR>", opts)
 vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>BufferClose<CR>", opts)
 vim.api.nvim_set_keymap("t", "<S-A-=>", "<C-\\><C-n><Cmd>BufferRestore<CR>", opts)
 
