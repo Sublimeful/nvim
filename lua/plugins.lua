@@ -36,10 +36,10 @@ local plugins = {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', 'lewis6991/gitsigns.nvim' }
   },
-  -- Tabline
+  -- Bufline
   {
-    'alvarosevilla95/luatab.nvim',
-    dependencies = { 'kyazdani42/nvim-web-devicons' }
+    'romgrk/barbar.nvim',
+    dependencies = { 'lewis6991/gitsigns.nvim', 'nvim-tree/nvim-web-devicons' }
   },
   -- Fuzzy Finder
   {

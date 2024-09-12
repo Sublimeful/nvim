@@ -42,21 +42,36 @@ vim.api.nvim_set_keymap("v", "<S-j>", "j", opts)
 vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
 
 
--- Tab new/close
-vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
-vim.api.nvim_set_keymap("", "<A-->", "<Cmd>tabclose<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>tabnew<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-->", "<Esc><Cmd>tabclose<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>tabnew<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>tabclose<CR>", opts)
+-- Buf new/close/restore
+vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("", "<A-->", "<Cmd>BufferClose<CR>", opts)
+vim.api.nvim_set_keymap("", "<S-A-=>", "<Cmd>BufferRestore<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-->", "<Esc><Cmd>BufferClose<CR>", opts)
+vim.api.nvim_set_keymap("i", "<S-A-=>", "<Esc><Cmd>BufferRestore<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>new<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>BufferClose<CR>", opts)
+vim.api.nvim_set_keymap("t", "<S-A-=>", "<C-\\><C-n><Cmd>BufferRestore<CR>", opts)
 
 
--- Tab navigation
+-- Buf navigation
 for i = 1, 9 do
-  vim.api.nvim_set_keymap("", "<A-"..i..">", "<Cmd>tabn "..i.."<CR>", opts)
-  vim.api.nvim_set_keymap("i", "<A-"..i..">", "<Esc><Cmd>tabn "..i.."<CR>", opts)
-  vim.api.nvim_set_keymap("t", "<A-"..i..">", "<C-\\><C-n><Cmd>tabn "..i.."<CR>", opts)
+  vim.api.nvim_set_keymap("", "<A-"..i..">", "<Cmd>BufferGoto "..i.."<CR>", opts)
+  vim.api.nvim_set_keymap("i", "<A-"..i..">", "<Esc><Cmd>BufferGoto "..i.."<CR>", opts)
+  vim.api.nvim_set_keymap("t", "<A-"..i..">", "<C-\\><C-n><Cmd>BufferGoto "..i.."<CR>", opts)
 end
+vim.api.nvim_set_keymap("", "<A-]>", "<Cmd>BufferNext<CR>", opts)
+vim.api.nvim_set_keymap("", "<A-[>", "<Cmd>BufferPrevious<CR>", opts)
+vim.api.nvim_set_keymap("", "<S-A-]>", "<Cmd>BufferMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("", "<S-A-[>", "<Cmd>BufferMovePrevious<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-]>", "<Esc><Cmd>BufferNext<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-[>", "<Esc><Cmd>BufferPrevious<CR>", opts)
+vim.api.nvim_set_keymap("i", "<S-A-]>", "<Esc><Cmd>BufferMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("i", "<S-A-[>", "<Esc><Cmd>BufferMovePrevious<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-]>", "<C-\\><C-n><Cmd>BufferNext<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-[>", "<C-\\><C-n><Cmd>BufferPrevious<CR>", opts)
+vim.api.nvim_set_keymap("t", "<S-A-]>", "<C-\\><C-n><Cmd>BufferMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("t", "<S-A-[>", "<C-\\><C-n><Cmd>BufferMovePrevious<CR>", opts)
 
 
 -- Terminal

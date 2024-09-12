@@ -19,8 +19,8 @@ require("lualine").setup {
   }
 }
 
--- luatab.nvim
-require("luatab").setup()
+-- barbar.nvim
+require("barbar").setup()
 
 -- nvim-brackets
 require("nvim-brackets")
