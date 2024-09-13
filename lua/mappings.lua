@@ -74,6 +74,12 @@ vim.api.nvim_set_keymap("t", "<S-A-]>", "<C-\\><C-n><Cmd>BufferMoveNext<CR>", op
 vim.api.nvim_set_keymap("t", "<S-A-[>", "<C-\\><C-n><Cmd>BufferMovePrevious<CR>", opts)
 
 
+-- Buf Pinning
+vim.api.nvim_set_keymap("", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-p>", "<Esc><Cmd>BufferPin<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-p>", "<C-\\><C-n><Cmd>BufferPin<CR>", opts)
+
+
 -- Terminal
 vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
 vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
