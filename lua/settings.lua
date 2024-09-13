@@ -1,5 +1,5 @@
 -- Comma as leader
-vim.g.mapleader = ','
+vim.g.mapleader = ","
 
 -- Autosave configuration
 vim.g.auto_save_events = { "InsertLeave", "TextChanged", "CursorHold", "CursorHoldI" }
@@ -13,11 +13,10 @@ vim.opt.updatetime = 1000
 vim.opt.undofile = true
 
 -- Use :help instead of :Man to prevent freezes
-vim.opt.keywordprg = ':help'
+vim.opt.keywordprg = ":help"
 
 -- Enables mouse support
 vim.opt.mouse = "a"
-vim.opt.mousemodel = "extend"
 vim.opt.mousescroll = "ver:1,hor:1"
 
 -- Alignment tabs are 2 spaces wide, and never tabs
@@ -41,7 +40,7 @@ vim.opt.number = true
 vim.opt.signcolumn = "yes:1"
 
 -- Enable shared clipboard
-vim.opt.clipboard:append({ 'unnamed', 'unnamedplus' })
+vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
 -- Enables 24-bit RGB color in the TUI
 vim.opt.termguicolors = true

@@ -15,49 +15,49 @@ vim.opt.rtp:prepend(lazypath)
 -- List of plugins
 local plugins = {
   -- Language Server Configs
-  'neovim/nvim-lspconfig',
+  "neovim/nvim-lspconfig",
   -- Syntax highlighting
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
   -- LSP Signature Hints
-  'ray-x/lsp_signature.nvim',
+  "ray-x/lsp_signature.nvim",
   -- Language Server manager
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   -- Completion and Code Snippets
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/nvim-cmp',
-  { 'hrsh7th/cmp-path', lazy = false },
-  { 'hrsh7th/cmp-buffer', lazy = false },
-  { 'hrsh7th/vim-vsnip', lazy = false },
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/nvim-cmp",
+  { "hrsh7th/cmp-path", lazy = false },
+  { "hrsh7th/cmp-buffer", lazy = false },
+  { "hrsh7th/vim-vsnip", lazy = false },
   -- Code Formatter
-  { 'sbdchd/neoformat', lazy = false },
+  { "sbdchd/neoformat", lazy = false },
   -- Statusline
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', 'lewis6991/gitsigns.nvim' }
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns.nvim" },
   },
-  -- Bufline
+  -- Bufferline
   {
-    'romgrk/barbar.nvim',
-    dependencies = { 'lewis6991/gitsigns.nvim', 'nvim-tree/nvim-web-devicons' }
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   -- Fuzzy Finder
   {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   -- Theme
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- Properly indents brackets
-  { 'Sublimeful/nvim-brackets' },
+  { "Sublimeful/nvim-brackets" },
   -- Quick code comments
-  { 'tpope/vim-commentary', lazy = false },
+  { "tpope/vim-commentary", lazy = false },
   -- AutoSave to prevent losing work
-  { '907th/vim-auto-save', lazy = false },
+  { "907th/vim-auto-save", lazy = false },
   -- File Explorer
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
 
@@ -78,4 +78,4 @@ local opts = {
   defaults = { lazy = true },
 }
 
-require('lazy').setup(plugins, opts)
+require("lazy").setup(plugins, opts)
