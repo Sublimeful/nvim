@@ -52,21 +52,21 @@ for i = 1, 9 do
 end
 vim.api.nvim_set_keymap("", "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("", "<S-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("", "<S-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
+vim.api.nvim_set_keymap("", "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("", "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
 vim.api.nvim_set_keymap("i", "<A-]>", "<Esc><Cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap("i", "<A-[>", "<Esc><Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("i", "<S-A-]>", "<Esc><Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("i", "<S-A-[>", "<Esc><Cmd>BufferLineMovePrev<CR>", opts)
+vim.api.nvim_set_keymap("i", "<C-A-]>", "<Esc><Cmd>BufferLineMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("i", "<C-A-[>", "<Esc><Cmd>BufferLineMovePrev<CR>", opts)
 vim.api.nvim_set_keymap("t", "<A-]>", "<C-\\><C-n><Cmd>BufferLineCycleNext<CR>", opts)
 vim.api.nvim_set_keymap("t", "<A-[>", "<C-\\><C-n><Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("t", "<S-A-]>", "<C-\\><C-n><Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("t", "<S-A-[>", "<C-\\><C-n><Cmd>BufferLineMovePrev<CR>", opts)
+vim.api.nvim_set_keymap("t", "<C-A-]>", "<C-\\><C-n><Cmd>BufferLineMoveNext<CR>", opts)
+vim.api.nvim_set_keymap("t", "<C-A-[>", "<C-\\><C-n><Cmd>BufferLineMovePrev<CR>", opts)
 
 -- Buffer Pinning
-vim.api.nvim_set_keymap("", "<S-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
-vim.api.nvim_set_keymap("i", "<S-A-P>", "<Esc><Cmd>BufferLineTogglePin<CR>", opts)
-vim.api.nvim_set_keymap("t", "<S-A-P>", "<C-\\><C-n><Cmd>BufferLineTogglePin<CR>", opts)
+vim.api.nvim_set_keymap("", "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
+vim.api.nvim_set_keymap("i", "<C-A-P>", "<Esc><Cmd>BufferLineTogglePin<CR>", opts)
+vim.api.nvim_set_keymap("t", "<C-A-P>", "<C-\\><C-n><Cmd>BufferLineTogglePin<CR>", opts)
 
 -- Terminal
 vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
