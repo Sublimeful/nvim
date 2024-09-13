@@ -26,8 +26,7 @@ require("bufferline").setup({
     modified_icon = " ",
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local icon = level:match("error") and " " or " "
-      return " " .. icon .. count
+      return level:match("error") and " " or ""
     end,
     show_buffer_close_icons = false,
     show_close_icon = false,
@@ -94,9 +93,6 @@ require("nvim-tree").setup({
     preserve_window_proportions = true,
   },
   actions = {
-    open_file = {
-      resize_window = false,
-    },
     change_dir = {
       global = true,
     },
