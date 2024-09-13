@@ -37,11 +37,11 @@ vim.api.nvim_set_keymap("v", "<S-j>", "j", opts)
 vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
 
 -- Buffer new/close
-vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>tabnew<CR>", opts)
+vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>enew<CR>", opts)
 vim.api.nvim_set_keymap("", "<A-->", "<Cmd>bd<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>tabnew<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>enew<CR>", opts)
 vim.api.nvim_set_keymap("i", "<A-->", "<Esc><Cmd>bd<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>tabnew<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>enew<CR>", opts)
 vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>bd<CR>", opts)
 
 -- Buffer navigation
