@@ -23,6 +23,8 @@ require("lualine").setup({
 require("bufferline").setup({
   options = {
     numbers = "ordinal",
+    close_command = "Bdelete! %d",
+    right_mouse_command = "Bdelete! %d",
     modified_icon = " ",
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
