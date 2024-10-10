@@ -45,6 +45,9 @@ vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>enew<CR>", opts)
 vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>Bdelete!<CR>", opts)
 
 -- Buffer navigation
+vim.api.nvim_set_keymap("", "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
+vim.api.nvim_set_keymap("i", "<A-0>", "<Esc><Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
+vim.api.nvim_set_keymap("t", "<A-0>", "<C-\\><C-n><Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
 for i = 1, 9 do
   vim.api.nvim_set_keymap("", "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
   vim.api.nvim_set_keymap("i", "<A-" .. i .. ">", "<Esc><Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
