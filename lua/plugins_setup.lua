@@ -22,7 +22,6 @@ require("lualine").setup({
 -- bufferline.nvim
 require("bufferline").setup({
   options = {
-    numbers = "ordinal",
     close_command = "Bdelete! %d",
     right_mouse_command = "Bdelete! %d",
     modified_icon = " ",
