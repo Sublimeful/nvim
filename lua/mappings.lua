@@ -36,45 +36,38 @@ vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
 vim.api.nvim_set_keymap("v", "<S-j>", "j", opts)
 vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
 
--- Buffer new/close
-vim.api.nvim_set_keymap("", "<A-=>", "<Cmd>enew<CR>", opts)
-vim.api.nvim_set_keymap("", "<A-->", "<Cmd>Bdelete!<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-=>", "<Esc><Cmd>enew<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-->", "<Esc><Cmd>Bdelete!<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-=>", "<C-\\><C-n><Cmd>enew<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-->", "<C-\\><C-n><Cmd>Bdelete!<CR>", opts)
-
--- Buffer navigation
-vim.api.nvim_set_keymap("", "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-0>", "<Esc><Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-0>", "<C-\\><C-n><Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
-for i = 1, 9 do
-  vim.api.nvim_set_keymap("", "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
-  vim.api.nvim_set_keymap("i", "<A-" .. i .. ">", "<Esc><Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
-  vim.api.nvim_set_keymap("t", "<A-" .. i .. ">", "<C-\\><C-n><Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
-end
-vim.api.nvim_set_keymap("", "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
-vim.api.nvim_set_keymap("", "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("", "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("", "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-]>", "<Esc><Cmd>BufferLineCycleNext<CR>", opts)
-vim.api.nvim_set_keymap("i", "<A-[>", "<Esc><Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("i", "<C-A-]>", "<Esc><Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("i", "<C-A-[>", "<Esc><Cmd>BufferLineMovePrev<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-]>", "<C-\\><C-n><Cmd>BufferLineCycleNext<CR>", opts)
-vim.api.nvim_set_keymap("t", "<A-[>", "<C-\\><C-n><Cmd>BufferLineCyclePrev<CR>", opts)
-vim.api.nvim_set_keymap("t", "<C-A-]>", "<C-\\><C-n><Cmd>BufferLineMoveNext<CR>", opts)
-vim.api.nvim_set_keymap("t", "<C-A-[>", "<C-\\><C-n><Cmd>BufferLineMovePrev<CR>", opts)
-
--- Buffer Pinning
-vim.api.nvim_set_keymap("", "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
-vim.api.nvim_set_keymap("i", "<C-A-P>", "<Esc><Cmd>BufferLineTogglePin<CR>", opts)
-vim.api.nvim_set_keymap("t", "<C-A-P>", "<C-\\><C-n><Cmd>BufferLineTogglePin<CR>", opts)
-
 -- Terminal
 vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
 vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
 vim.api.nvim_set_keymap("", "<C-A-T>", "<Cmd>term<CR>i", opts)
+
+-- Buffer
+for _, mode in pairs({ "", "i", "t" }) do
+  -- New/Close
+  vim.api.nvim_set_keymap(mode, "<A-=>", "<Cmd>enew<CR>", opts)
+  vim.api.nvim_set_keymap(mode, "<A-->", "<Cmd>Bdelete!<CR>", opts)
+
+  -- Navigation
+  vim.api.nvim_set_keymap(mode, "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
+  for i = 1, 9 do
+    vim.api.nvim_set_keymap(mode, "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
+  end
+  vim.api.nvim_set_keymap(mode, "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
+  vim.api.nvim_set_keymap(mode, "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+  vim.api.nvim_set_keymap(mode, "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
+  vim.api.nvim_set_keymap(mode, "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
+
+  -- Pinning
+  vim.api.nvim_set_keymap(mode, "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
+
+  -- Terminal Renaming
+  vim.api.nvim_set_keymap(
+    mode,
+    "<C-A-R>",
+    "<Cmd>lua if vim.bo.buftype == 'terminal' then vim.cmd('file ' .. vim.fn.input('New Terminal Name: ') .. '.terminal') end<CR>",
+    opts
+  )
+end
 
 -- Telescope
 
