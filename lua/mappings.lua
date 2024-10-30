@@ -2,104 +2,107 @@
 local opts = { noremap = true }
 
 -- Set j and k to move one displayed line (ignore wrapping)
-vim.api.nvim_set_keymap("n", "j", "gj", opts)
-vim.api.nvim_set_keymap("n", "k", "gk", opts)
-vim.api.nvim_set_keymap("v", "j", "gj", opts)
-vim.api.nvim_set_keymap("v", "k", "gk", opts)
-vim.api.nvim_set_keymap("s", "j", "j", opts)
-vim.api.nvim_set_keymap("s", "k", "k", opts)
+vim.keymap.set({ "n", "v" }, "j", "gj", opts)
+vim.keymap.set({ "n", "v" }, "k", "gk", opts)
+vim.keymap.set("s", "j", "j", opts)
+vim.keymap.set("s", "k", "k", opts)
 
 -- Navigate down/up/left/right five displayed lines
-vim.api.nvim_set_keymap("n", "<C-j>", "5gj", opts)
-vim.api.nvim_set_keymap("n", "<C-k>", "5gk", opts)
-vim.api.nvim_set_keymap("n", "<C-h>", "5h", opts)
-vim.api.nvim_set_keymap("n", "<C-l>", "5l", opts)
-vim.api.nvim_set_keymap("v", "<C-j>", "5gj", opts)
-vim.api.nvim_set_keymap("v", "<C-k>", "5gk", opts)
-vim.api.nvim_set_keymap("v", "<C-h>", "5h", opts)
-vim.api.nvim_set_keymap("v", "<C-l>", "5l", opts)
+vim.keymap.set({ "n", "v" }, "<C-j>", "5gj", opts)
+vim.keymap.set({ "n", "v" }, "<C-k>", "5gk", opts)
+vim.keymap.set({ "n", "v" }, "<C-h>", "5h", opts)
+vim.keymap.set({ "n", "v" }, "<C-l>", "5l", opts)
 
 -- <A-;>/<A-'> as escape keys, disable default keybinds for ; and '
-vim.api.nvim_set_keymap("", ";", "<Nop>", opts)
-vim.api.nvim_set_keymap("", "'", "<Nop>", opts)
-vim.api.nvim_set_keymap("s", ";", ";", opts)
-vim.api.nvim_set_keymap("s", "'", "'", opts)
-vim.api.nvim_set_keymap("n", "r<A-;>", "<Esc>", opts)
-vim.api.nvim_set_keymap("n", "r<A-'>", "<Esc>", opts)
-vim.api.nvim_set_keymap("t", "<A-;>", "<C-\\><C-n>", opts)
-vim.api.nvim_set_keymap("t", "<A-'>", "<C-\\><C-n>", opts)
+vim.keymap.set("", ";", "<Nop>", opts)
+vim.keymap.set("", "'", "<Nop>", opts)
+vim.keymap.set("s", ";", ";", opts)
+vim.keymap.set("s", "'", "'", opts)
+vim.keymap.set("n", "r<A-;>", "<Esc>", opts)
+vim.keymap.set("n", "r<A-'>", "<Esc>", opts)
+vim.keymap.set("t", "<A-;>", "<C-\\><C-n>", opts)
+vim.keymap.set("t", "<A-'>", "<C-\\><C-n>", opts)
 
 -- Ctrl-W to delete whole word properly
-vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>gi<C-w>", opts)
+vim.keymap.set("i", "<C-w>", "<Esc>gi<C-w>", opts)
 
 -- Allow for smoother navigation in visual line mode
-vim.api.nvim_set_keymap("v", "<S-j>", "j", opts)
-vim.api.nvim_set_keymap("v", "<S-k>", "k", opts)
+vim.keymap.set("v", "<S-j>", "j", opts)
+vim.keymap.set("v", "<S-k>", "k", opts)
 
 -- Terminal
-vim.api.nvim_set_keymap("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
-vim.api.nvim_set_keymap("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
-vim.api.nvim_set_keymap("", "<C-A-T>", "<Cmd>term<CR>i", opts)
+vim.keymap.set("", "<C-t>", "<Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.keymap.set("", "<A-t>", "<Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.keymap.set("", "<C-A-T>", "<Cmd>term<CR>i", opts)
+vim.keymap.set("i", "<C-t>", "<Esc><Cmd>sp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.keymap.set("i", "<A-t>", "<Esc><Cmd>vsp<CR><C-w>w<Cmd>term<CR>i", opts)
+vim.keymap.set("i", "<C-A-T>", "<Esc><Cmd>term<CR>i", opts)
+vim.keymap.set("t", "<C-t>", "<Esc><Cmd>sp<CR><Cmd>term<CR>", opts)
+vim.keymap.set("t", "<A-t>", "<Esc><Cmd>vsp<CR><Cmd>term<CR>", opts)
+vim.keymap.set("t", "<C-A-T>", "<Esc><Cmd>term<CR>", opts)
 
--- Buffer
-for _, mode in pairs({ "", "i", "t" }) do
-  -- New/Close
-  vim.api.nvim_set_keymap(mode, "<A-=>", "<Cmd>enew<CR>", opts)
-  vim.api.nvim_set_keymap(mode, "<A-->", "<Cmd>Bdelete!<CR>", opts)
+-- <{{ Buffer
 
-  -- Navigation
-  vim.api.nvim_set_keymap(mode, "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
-  for i = 1, 9 do
-    vim.api.nvim_set_keymap(mode, "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
-  end
-  vim.api.nvim_set_keymap(mode, "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
-  vim.api.nvim_set_keymap(mode, "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-  vim.api.nvim_set_keymap(mode, "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
-  vim.api.nvim_set_keymap(mode, "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
+-- New/Close
+vim.keymap.set({ "", "i", "t" }, "<A-=>", "<Cmd>enew<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-->", "<Cmd>Bdelete!<CR>", opts)
 
-  -- Pinning
-  vim.api.nvim_set_keymap(mode, "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
-
-  -- Terminal Renaming
-  vim.api.nvim_set_keymap(
-    mode,
-    "<C-A-R>",
-    "<Cmd>lua if vim.bo.buftype == 'terminal' then vim.cmd('file ' .. vim.fn.input('New Terminal Name: ') .. '.terminal') end<CR>",
-    opts
-  )
+-- Navigation
+vim.keymap.set({ "", "i", "t" }, "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
+for i = 1, 9 do
+  vim.keymap.set({ "", "i", "t" }, "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
 end
+vim.keymap.set({ "", "i", "t" }, "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
 
--- Telescope
+-- Pinning
+vim.keymap.set({ "", "i", "t" }, "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)
+
+-- Terminal Renaming
+vim.keymap.set(
+  { "", "i", "t" },
+  "<C-A-R>",
+  "<Cmd>lua if vim.bo.buftype == 'terminal' then vim.cmd('file ' .. vim.fn.input('New Terminal Name: ') .. '.terminal') end<CR>",
+  opts
+)
+
+-- Buffer }}>
+
+-- <{{ Telescope
 
 -- File Pickers
-vim.api.nvim_set_keymap("n", ",f", "<Cmd>Telescope find_files<CR>", opts)
-vim.api.nvim_set_keymap("n", ",F", "<Cmd>Telescope git_files<CR>", opts)
-vim.api.nvim_set_keymap("n", ",g", "<Cmd>Telescope live_grep<CR>", opts)
+vim.keymap.set("n", ",f", "<Cmd>Telescope find_files<CR>", opts)
+vim.keymap.set("n", ",F", "<Cmd>Telescope git_files<CR>", opts)
+vim.keymap.set("n", ",g", "<Cmd>Telescope live_grep<CR>", opts)
 
 -- Vim Pickers
-vim.api.nvim_set_keymap("n", ",b", "<Cmd>Telescope buffers<CR>", opts)
-vim.api.nvim_set_keymap("n", ",h", "<Cmd>Telescope oldfiles<CR>", opts)
-vim.api.nvim_set_keymap("n", ",m", "<Cmd>Telescope keymaps<CR>", opts)
+vim.keymap.set("n", ",b", "<Cmd>Telescope buffers<CR>", opts)
+vim.keymap.set("n", ",h", "<Cmd>Telescope oldfiles<CR>", opts)
+vim.keymap.set("n", ",m", "<Cmd>Telescope keymaps<CR>", opts)
 
 -- LSP Pickers
-vim.api.nvim_set_keymap("n", ",r", "<Cmd>Telescope lsp_references<CR>", opts)
-vim.api.nvim_set_keymap("n", ",ci", "<Cmd>Telescope lsp_incoming_calls<CR>", opts)
-vim.api.nvim_set_keymap("n", ",co", "<Cmd>Telescope lsp_outgoing_calls<CR>", opts)
-vim.api.nvim_set_keymap("n", ",sd", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
-vim.api.nvim_set_keymap("n", ",sw", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
-vim.api.nvim_set_keymap("n", ",e", "<Cmd>Telescope diagnostics<CR>", opts)
-vim.api.nvim_set_keymap("n", ",i", "<Cmd>Telescope lsp_implementations<CR>", opts)
-vim.api.nvim_set_keymap("n", ",d", "<Cmd>Telescope lsp_definitions<CR>", opts)
-vim.api.nvim_set_keymap("n", ",t", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
+vim.keymap.set("n", ",r", "<Cmd>Telescope lsp_references<CR>", opts)
+vim.keymap.set("n", ",ci", "<Cmd>Telescope lsp_incoming_calls<CR>", opts)
+vim.keymap.set("n", ",co", "<Cmd>Telescope lsp_outgoing_calls<CR>", opts)
+vim.keymap.set("n", ",sd", "<Cmd>Telescope lsp_document_symbols<CR>", opts)
+vim.keymap.set("n", ",sw", "<Cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
+vim.keymap.set("n", ",e", "<Cmd>Telescope diagnostics<CR>", opts)
+vim.keymap.set("n", ",i", "<Cmd>Telescope lsp_implementations<CR>", opts)
+vim.keymap.set("n", ",d", "<Cmd>Telescope lsp_definitions<CR>", opts)
+vim.keymap.set("n", ",t", "<Cmd>Telescope lsp_type_definitions<CR>", opts)
 
 -- Git Pickers
-vim.api.nvim_set_keymap("n", ",Gc", "<Cmd>Telescope git_commits<CR>", opts)
-vim.api.nvim_set_keymap("n", ",GB", "<Cmd>Telescope git_bcommits<CR>", opts)
-vim.api.nvim_set_keymap("v", ",GB", "<Cmd>Telescope git_bcommits_range<CR>", opts)
-vim.api.nvim_set_keymap("n", ",Gb", "<Cmd>Telescope git_branches<CR>", opts)
-vim.api.nvim_set_keymap("n", ",Gs", "<Cmd>Telescope git_status<CR>", opts)
-vim.api.nvim_set_keymap("n", ",GS", "<Cmd>Telescope git_stash<CR>", opts)
+vim.keymap.set("n", ",Gc", "<Cmd>Telescope git_commits<CR>", opts)
+vim.keymap.set("n", ",GB", "<Cmd>Telescope git_bcommits<CR>", opts)
+vim.keymap.set("v", ",GB", "<Cmd>Telescope git_bcommits_range<CR>", opts)
+vim.keymap.set("n", ",Gb", "<Cmd>Telescope git_branches<CR>", opts)
+vim.keymap.set("n", ",Gs", "<Cmd>Telescope git_status<CR>", opts)
+vim.keymap.set("n", ",GS", "<Cmd>Telescope git_stash<CR>", opts)
+
+-- Telescope }}>
 
 -- nvim-tree
-vim.api.nvim_set_keymap("n", "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
-vim.api.nvim_set_keymap("n", "<C-A-B>", "<Cmd>NvimTreeFindFile<CR>", opts)
+vim.keymap.set("n", "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
+vim.keymap.set("n", "<C-A-B>", "<Cmd>NvimTreeFindFile<CR>", opts)
