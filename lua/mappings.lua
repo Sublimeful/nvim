@@ -104,5 +104,5 @@ vim.keymap.set("n", ",GS", "<Cmd>Telescope git_stash<CR>", opts)
 -- Telescope }}>
 
 -- nvim-tree
-vim.keymap.set("n", "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
-vim.keymap.set("n", "<C-A-B>", "<Cmd>NvimTreeFindFile<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-b>", "<Cmd>NvimTreeToggle<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-A-B>", "<Cmd>NvimTreeFindFile<CR>", opts)
