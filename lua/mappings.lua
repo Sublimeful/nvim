@@ -13,15 +13,8 @@ vim.keymap.set({ "n", "v" }, "<C-k>", "5gk", opts)
 vim.keymap.set({ "n", "v" }, "<C-h>", "5h", opts)
 vim.keymap.set({ "n", "v" }, "<C-l>", "5l", opts)
 
--- <A-;>/<A-'> as escape keys, disable default keybinds for ; and '
-vim.keymap.set("", ";", "<Nop>", opts)
-vim.keymap.set("", "'", "<Nop>", opts)
-vim.keymap.set("s", ";", ";", opts)
-vim.keymap.set("s", "'", "'", opts)
-vim.keymap.set("n", "r<A-;>", "<Esc>", opts)
-vim.keymap.set("n", "r<A-'>", "<Esc>", opts)
-vim.keymap.set("t", "<A-;>", "<C-\\><C-n>", opts)
-vim.keymap.set("t", "<A-'>", "<C-\\><C-n>", opts)
+-- Escape from terminal when <Esc> is pressed
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts)
 
 -- Ctrl-W to delete whole word properly
 vim.keymap.set("i", "<C-w>", "<Esc>gi<C-w>", opts)
