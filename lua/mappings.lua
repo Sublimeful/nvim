@@ -44,18 +44,18 @@ vim.keymap.set("t", "<C-A-T>", "<Esc><Cmd>term<CR>", opts)
 -- <{{ Buffer
 
 -- New/Close
-vim.keymap.set({ "", "i", "t" }, "<A-=>", "<Cmd>enew<CR>", opts)
-vim.keymap.set({ "", "i", "t" }, "<A-->", "<Cmd>Bdelete!<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-k>", "<Cmd>enew<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-j>", "<Cmd>Bdelete!<CR>", opts)
 
 -- Navigation
 vim.keymap.set({ "", "i", "t" }, "<A-0>", "<Cmd>lua require('bufferline').go_to(1, true)<CR>", opts)
 for i = 1, 9 do
   vim.keymap.set({ "", "i", "t" }, "<A-" .. i .. ">", "<Cmd>BufferLineGoToBuffer " .. i .. "<CR>", opts)
 end
-vim.keymap.set({ "", "i", "t" }, "<A-]>", "<Cmd>BufferLineCycleNext<CR>", opts)
-vim.keymap.set({ "", "i", "t" }, "<A-[>", "<Cmd>BufferLineCyclePrev<CR>", opts)
-vim.keymap.set({ "", "i", "t" }, "<C-A-]>", "<Cmd>BufferLineMoveNext<CR>", opts)
-vim.keymap.set({ "", "i", "t" }, "<C-A-[>", "<Cmd>BufferLineMovePrev<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-l>", "<Cmd>BufferLineCycleNext<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-h>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-A-L>", "<Cmd>BufferLineMoveNext<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<C-A-H>", "<Cmd>BufferLineMovePrev<CR>", opts)
 
 -- Pinning
 vim.keymap.set({ "", "i", "t" }, "<C-A-P>", "<Cmd>BufferLineTogglePin<CR>", opts)

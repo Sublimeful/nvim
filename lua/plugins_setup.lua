@@ -75,6 +75,9 @@ require("telescope").setup({
         ["<A-->"] = actions.nop,
       },
     },
+    path_display = {
+      "filename_first",
+    },
   },
   pickers = {
     buffers = {
