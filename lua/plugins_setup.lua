@@ -115,6 +115,9 @@ require("nvim-tree").setup({
   filesystem_watchers = {
     enable = true,
   },
+  git = {
+    timeout = -1,
+  },
   on_attach = function(bufnr)
     local api = require("nvim-tree.api")
 

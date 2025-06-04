@@ -39,13 +39,14 @@ local plugins = {
   -- Statusline
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+  -- Git signs
+  "lewis6991/gitsigns.nvim",
   -- Bufferline
-  {
-    "akinsho/bufferline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "famiu/bufdelete.nvim" },
-  },
+  { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  -- Buffer deletion
+  "famiu/bufdelete.nvim",
   -- Fuzzy Finder
   {
     "nvim-telescope/telescope.nvim",
