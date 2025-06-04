@@ -1,4 +1,4 @@
--- Bootstrap lazy.nvim (Plugin Manager)
+-- <{{ Bootstrap lazy.nvim (Plugin Manager)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,18 +11,23 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+-- }}>
 
--- List of plugins
+-- <{{ List of plugins
 local plugins = {
-  -- Language Server Configs
-  "neovim/nvim-lspconfig",
+  -- Language Server manager
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
   -- Syntax highlighting
   "nvim-treesitter/nvim-treesitter",
   -- LSP Signature Hints
   "ray-x/lsp_signature.nvim",
-  -- Language Server manager
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
   -- Completion and Code Snippets
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
@@ -60,8 +65,9 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
+-- }}>
 
--- Load custom plugins
+-- <{{ Load custom plugins
 local custom_plugins_path = vim.fn.stdpath("data") .. "/custom/plugins.lua"
 if vim.fn.filereadable(custom_plugins_path) == 1 then
   local custom_plugins = dofile(custom_plugins_path)
@@ -71,11 +77,13 @@ if vim.fn.filereadable(custom_plugins_path) == 1 then
     end
   end
 end
+-- }}>
 
--- Lazy configuration
+-- <{{ Lazy configuration
 local opts = {
   -- Lazy loads all plugins by default
   defaults = { lazy = true },
 }
 
 require("lazy").setup(plugins, opts)
+-- }}>

@@ -1,7 +1,8 @@
--- Highlight groups
+-- <{{ Highlight groups
 vim.api.nvim_set_hl(0, "SignatureHint", { fg = "#FFF000", bold = true })
+-- }}>
 
--- Color Scheme setup
+-- <{{ Color Scheme setup
 require("catppuccin").setup({
   flavour = "frappe", -- latte, frappe, macchiato, mocha
   background = { -- :h background
@@ -61,3 +62,4 @@ require("catppuccin").setup({
 
 -- Setup must be called before loading
 vim.cmd.colorscheme("catppuccin")
+-- }}>

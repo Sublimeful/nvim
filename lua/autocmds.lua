@@ -1,12 +1,13 @@
--- Disable all formatting options, such as putting comments after newlines
+-- <{{ Disable all formatting options, such as putting comments after newlines
 vim.api.nvim_create_autocmd({ "Filetype" }, {
   pattern = { "*" },
   callback = function()
     vim.o.formatoptions = ""
   end,
 })
+-- }}>
 
--- Jump to last cursor position when opening a file
+-- <{{ Jump to last cursor position when opening a file
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*" },
   callback = function()
@@ -17,3 +18,19 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     end
   end,
 })
+-- }}>
+
+-- <{{ LspAttach
+-- Only map the following keys after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    -- Buffer local mappings
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { noremap = true, silent = true, buffer = ev.buf }
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", ",R", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", ",C", vim.lsp.buf.code_action, opts)
+  end,
+})
+-- }}>
