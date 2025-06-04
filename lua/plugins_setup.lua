@@ -84,6 +84,7 @@ require("telescope").setup({
     path_display = {
       "filename_first",
     },
+    border = false,
   },
   pickers = {
     buffers = {
