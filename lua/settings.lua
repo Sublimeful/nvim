@@ -74,3 +74,7 @@ vim.opt.timeout = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- }}>
+
+-- <{{ Default border style of floating windows
+vim.opt.winborder = "rounded"
+-- }}>

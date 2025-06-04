@@ -1,23 +1,7 @@
--- <{{ Local config
-local border_style = "single"
--- }}>
-
 -- <{{ Global lsp config
 vim.lsp.config("*", {
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
--- }}>
-
--- <{{ Configure diagnostics
-vim.diagnostic.config({
-  float = { border = border_style },
-})
--- }}>
-
--- <{{ Define handlers
-vim.lsp.handlers["textDocument/signatureHelp"] =
-  vim.lsp.with(vim.lsp.handlers.signature_help, { border = border_style })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border_style })
 -- }}>
 
 -- <{{ Load custom lsp setup configs
