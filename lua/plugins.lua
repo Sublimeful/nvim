@@ -46,7 +46,7 @@ local plugins = {
   -- Bufferline
   { "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
   -- Buffer deletion
-  "famiu/bufdelete.nvim",
+  { "famiu/bufdelete.nvim", lazy = false },
   -- Fuzzy Finder
   {
     "nvim-telescope/telescope.nvim",
