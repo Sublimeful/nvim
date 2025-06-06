@@ -56,8 +56,6 @@ local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- Properly indents brackets
   { "Sublimeful/nvim-brackets" },
-  -- Quick code comments
-  { "tpope/vim-commentary", lazy = false },
   -- AutoSave to prevent losing work
   { "907th/vim-auto-save", lazy = false },
   -- File Explorer
