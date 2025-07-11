@@ -2,10 +2,10 @@
 require("settings")
 require("mappings")
 require("plugins")
+require("theme")
 require("plugins_setup")
 require("nvimlsp")
 require("autocmds")
-require("theme")
 -- }}>
 
 -- <{{ Load custom init.lua
