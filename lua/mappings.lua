@@ -16,8 +16,8 @@ vim.keymap.set({ "n", "v" }, "<C-h>", "5h", opts)
 vim.keymap.set({ "n", "v" }, "<C-l>", "5l", opts)
 -- }}>
 
--- <{{ Escape from terminal when <Esc> is pressed
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", opts)
+-- <{{ Escape from terminal when the escape key is pressed
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", opts)
 -- }}>
 
 -- <{{ Ctrl-W to delete whole word properly
