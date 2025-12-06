@@ -31,7 +31,7 @@ require("bufferline").setup({
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       return level:match("error") and " " or ""
     end,
-    show_buffer_close_icons = false,
+    show_buffer_close_icons = true,
     show_close_icon = false,
   },
   highlights = require("catppuccin.special.bufferline").get_theme(),
