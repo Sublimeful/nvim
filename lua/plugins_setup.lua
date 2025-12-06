@@ -24,8 +24,8 @@ require("lualine").setup({
 -- <{{ bufferline.nvim
 require("bufferline").setup({
   options = {
-    close_command = "Bdelete! %d",
-    right_mouse_command = "Bdelete! %d",
+    close_command = require("utils").bd_close,
+    right_mouse_command = require("utils").bd_close,
     modified_icon = " ",
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -34,7 +34,7 @@ require("bufferline").setup({
     show_buffer_close_icons = false,
     show_close_icon = false,
   },
-  highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
+  highlights = require("catppuccin.special.bufferline").get_theme(),
 })
 -- }}>
 
@@ -86,7 +86,7 @@ require("telescope").setup({
     path_display = {
       "filename_first",
     },
-    border = false,
+    border = true,
   },
   pickers = {
     buffers = {

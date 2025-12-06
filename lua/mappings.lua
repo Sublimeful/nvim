@@ -45,7 +45,7 @@ vim.keymap.set("t", "<C-A-T>", "<Esc><Cmd>term<CR>", opts)
 
 -- <{{ New/Close
 vim.keymap.set({ "", "i", "t" }, "<A-k>", "<Cmd>enew<CR>", opts)
-vim.keymap.set({ "", "i", "t" }, "<A-j>", "<Cmd>Bdelete!<CR>", opts)
+vim.keymap.set({ "", "i", "t" }, "<A-j>", require("utils").bd_close, opts)
 -- }}>
 
 -- <{{ Navigation
