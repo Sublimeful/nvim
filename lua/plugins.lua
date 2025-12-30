@@ -25,7 +25,7 @@ local plugins = {
     },
   },
   -- Syntax highlighting
-  "nvim-treesitter/nvim-treesitter",
+  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
   -- LSP Signature Hints
   "ray-x/lsp_signature.nvim",
   -- Completion and Code Snippets
